@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Button, List, Skeleton, Form, Input, Checkbox } from "antd";
 import "../form.css";
 
+import { Link } from "react-router-dom";
+
 const count = 3;
 const jobDataUrl = `http://dev3.dansmultipro.co.id/api/recruitment/positions.json`;
 const JobList = () => {
@@ -66,6 +68,8 @@ const JobList = () => {
     ) : null;
   return (
     <>
+      <h2>Find Your Dream Job </h2>
+
       <div className="container">
         <Form className="form">
           <Form.Item label="Description" name="description">
@@ -107,7 +111,7 @@ const JobList = () => {
           <List.Item>
             <Skeleton avatar title={false} loading={item.loading} active>
               <List.Item.Meta
-                title={<a href="https://ant.design">{item.title}</a>}
+                title={<Link to={item.id}>{item.title}</Link>}
                 description={item.location}
               />
               <div>{item.type}</div>
